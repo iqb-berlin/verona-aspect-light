@@ -1,0 +1,32 @@
+<form class="inline-container"
+      [formGroup]="form">
+  <aspect-cloze
+      *ngIf="elementModel.type === 'cloze'"
+      #elementComponent
+      [parentForm]="form"
+      [elementModel]="elementModel | cast: ClozeElement"
+      (childrenAdded)="registerCompoundChildren($event)">
+  </aspect-cloze>
+  <aspect-likert
+      *ngIf="elementModel.type === 'likert'"
+      #elementComponent
+      [parentForm]="form"
+      [elementModel]="elementModel | cast: LikertElement"
+      (childrenAdded)="registerCompoundChildren($event)">
+  </aspect-likert>
+  <aspect-table
+    *ngIf="elementModel.type === 'table'"
+    #elementComponent
+    [parentForm]="form"
+    [savedTexts]="savedTexts"
+    [savedPlaybackTimes]="savedPlaybackTimes"
+    [actualPlayingId]="mediaPlayerService.actualPlayingId"
+    [mediaStatusChanged]="mediaPlayerService.mediaStatusChanged"
+    [elementModel]="elementModel | cast: TableElement"
+    (childrenAdded)="registerCompoundChildren($event)">
+  </aspect-table>
+</form>
+
+<aspect-floating-keypad
+    [isKeypadOpen]="isKeypadOpen && keypadService.position === 'floating'">
+</aspect-floating-keypad>

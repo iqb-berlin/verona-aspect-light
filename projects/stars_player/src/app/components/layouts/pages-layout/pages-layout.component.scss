@@ -1,0 +1,73 @@
+.concat-scroll-snap-align {
+  scroll-snap-align: start;
+}
+
+.fx-column-start-stretch {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.fx-row-start-stretch {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.concat-scroll-snap {
+  scroll-snap-type: y mandatory;
+  scroll-padding: 0;
+  scroll-snap-stop: always;
+}
+
+.page-container{
+  width: 100%;
+  overflow: auto;
+}
+
+.left-container{
+  margin-left: auto;
+}
+
+.center-pages{
+  margin: auto;
+}
+
+.hide-page {
+  display: none;
+}
+
+.pages-container{
+  height: 100%;
+  overflow: auto;
+}
+
+:host ::ng-deep .buttons-mode .mat-mdc-tab-body.mat-mdc-tab-body-active {
+  animation: fade-in 300ms;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    top: 100vh;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+:host ::ng-deep .mat-mdc-tab-body-content {
+  height: 100%;
+  overflow: unset;
+}
+
+:host ::ng-deep .mat-mdc-tab-body-wrapper, :host ::ng-deep .mat-mdc-tab-body {
+  display: unset;
+}
+
+

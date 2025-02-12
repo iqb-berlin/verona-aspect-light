@@ -1,0 +1,47 @@
+<form class="inline-container"
+      [formGroup]="form">
+  <aspect-text-area
+    *ngIf="elementModel.type === 'text-area'"
+    #elementComponent
+    [parentForm]="form"
+    [elementModel]="elementModel | cast: TextAreaElement"
+    (onKeyDown)="detectHardwareKeyboard(elementModel); checkInputLimitation($event, elementModel)"
+    (focusChanged)="toggleKeyInput($event, elementComponent)">
+  </aspect-text-area>
+  <aspect-text-field
+    *ngIf="elementModel.type === 'text-field'"
+    #elementComponent
+    [parentForm]="form"
+    [elementModel]="elementModel | cast: TextFieldElement"
+    (onKeyDown)="detectHardwareKeyboard(elementModel); checkInputLimitation($event, elementModel)"
+    (focusChanged)="toggleKeyInput($event, elementComponent)">
+  </aspect-text-field>
+  <aspect-spell-correct
+    *ngIf="elementModel.type === 'spell-correct'"
+    #elementComponent
+    [parentForm]="form"
+    [elementModel]="elementModel | cast: SpellCorrectElement"
+    (onKeyDown)="detectHardwareKeyboard(elementModel); checkInputLimitation($event, elementModel)"
+    (focusChanged)="toggleKeyInput($event, elementComponent)">
+  </aspect-spell-correct>
+  <aspect-text-area-math
+    *ngIf="elementModel.type === 'text-area-math'"
+    #elementComponent
+    [parentForm]="form"
+    [elementModel]="elementModel | cast: TextAreaMathElement"
+    (onKeyDown)="detectHardwareKeyboard(elementModel)"
+    (focusChanged)="toggleKeyInput($event, elementComponent)">
+  </aspect-text-area-math>
+  <aspect-math-field
+    *ngIf="elementModel.type === 'math-field'"
+    #elementComponent
+    [parentForm]="form"
+    [elementModel]="elementModel | cast: MathFieldElement"
+    (focusChanged)="toggleKeyInput($event, elementComponent)">
+  </aspect-math-field>
+</form>
+
+<aspect-floating-keypad
+  [isKeypadOpen]="isKeypadOpen && keypadService.position === 'floating'">
+</aspect-floating-keypad>
+
