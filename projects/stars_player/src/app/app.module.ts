@@ -7,23 +7,35 @@ import { CommonModule } from '@angular/common';
 import { createCustomElement } from '@angular/elements';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
+
+import { InputAssistanceCustomKeysPipe } from './pipes/input-assistance-custom-keys.pipe';
+import { HasNextPagePipe } from './pipes/has-next-page.pipe';
+import { IsValidPagePipe } from './pipes/is-valid-page.pipe';
+import { AsOverlayOriginPipe } from 'player/src/app/pipes/as-overlay-origin.pipe';
+import { MeasurePipe } from 'common/pipes/measure.pipe';
+import { HasReturnKeyPipe } from 'player/src/app/pipes/has-return-key.pipe';
+import { HasPreviousPagePipe } from 'player/src/app/pipes/has-previous-page.pipe';
+import { CastPipe } from './pipes/cast.pipe';
+import { IsEnabledNavigationTargetPipe } from 'common/pipes/is-enabled-navigation-target.pipe';
+import { AlwaysVisiblePagePipe } from './pipes/always-visible-page.pipe';
+import { PageIndexPipe } from './pipes/page-index.pipe';
+
+
 import { SharedModule, APIService } from 'common/shared.module';
 import { KeyInputModule } from 'player/modules/key-input/key-input.module';
 import { UnitMenuModule } from 'player/modules/unit-menu/unit-menu.module';
 import { MetaDataService } from 'player/src/app/services/meta-data.service';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { AsOverlayOriginPipe } from 'player/src/app/pipes/as-overlay-origin.pipe';
-import { HasReturnKeyPipe } from 'player/src/app/pipes/has-return-key.pipe';
+import { ErrorService } from 'player/src/app/services/error.service';
+
+
 import { PageNavButtonComponent } from 'player/src/app/components/page-nav-button/page-nav-button.component';
-import { HasPreviousPagePipe } from 'player/src/app/pipes/has-previous-page.pipe';
-import { MeasurePipe } from 'common/pipes/measure.pipe';
 import { TableComponent } from 'common/components/compound-elements/table/table.component';
 import {
   MarkablesContainerComponent
 } from 'player/src/app/components/markables-container/markables-container.component';
-import { IsEnabledNavigationTargetPipe } from 'common/pipes/is-enabled-navigation-target.pipe';
 import { MarkingPanelComponent } from 'common/components/text/marking-panel.component';
-import { ErrorService } from 'player/src/app/services/error.service';
 import { UnitNavNextComponent } from 'common/components/unit-nav-next.component';
 import { AppComponent } from './app.component';
 import { PageComponent } from './components/page/page.component';
@@ -48,7 +60,6 @@ import {
 import {
   CompoundGroupElementComponent
 } from './components/elements/compound-group-element/compound-group-element.component';
-import { CastPipe } from './pipes/cast.pipe';
 import { TextGroupElementComponent } from './components/elements/text-group-element/text-group-element.component';
 import { BaseGroupElementComponent } from './components/elements/base-group-element/base-group-element.component';
 import {
@@ -56,17 +67,13 @@ import {
 } from './components/elements/interactive-group-element/interactive-group-element.component';
 import { PlayerLayoutComponent } from './components/layouts/player-layout/player-layout.component';
 import { UnitStateDirective } from './directives/unit-state.directive';
-import { AlwaysVisiblePagePipe } from './pipes/always-visible-page.pipe';
-import { PageIndexPipe } from './pipes/page-index.pipe';
+
 import { PlayerStateDirective } from './directives/player-state.directive';
 import { SectionVisibilityHandlingDirective } from './directives/section-visibility-handling.directive';
 import { UnitComponent } from './components/unit/unit.component';
 import { PageScrollButtonComponent } from './components/page-scroll-button/page-scroll-button.component';
 import { ExternalAppGroupElementComponent } from
   './components/elements/external-app-group-element/external-app-group-element.component';
-import { InputAssistanceCustomKeysPipe } from './pipes/input-assistance-custom-keys.pipe';
-import { HasNextPagePipe } from './pipes/has-next-page.pipe';
-import { IsValidPagePipe } from './pipes/is-valid-page.pipe';
 import {
   MathKeyboardContainerComponent
 } from 'player/src/app/components/math-keyboard-container/math-keyboard-container.component';

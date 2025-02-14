@@ -7,7 +7,7 @@ import { NativeEventService } from './services/native-event.service';
 import { MetaDataService } from './services/meta-data.service';
 
 @Component({
-  selector: 'aspect-player',
+  selector: 'stars-player',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.setLocales();
     this.veronaPostService.sendReadyNotification(this.metaDataService.playerMetadata);
     this.nativeEventService.focus
-      .subscribe(isFocused => this.veronaPostService
+      .subscribe((isFocused: boolean) => this.veronaPostService
         .sendVopWindowFocusChangedNotification(isFocused));
   }
 

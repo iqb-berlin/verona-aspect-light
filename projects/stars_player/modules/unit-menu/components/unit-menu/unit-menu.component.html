@@ -1,0 +1,79 @@
+<button mat-icon-button
+        [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <mat-form-field
+    class="start-page"
+    (click)="$event.stopPropagation()" >
+    <mat-label>{{ 'startPageIndex' | translate }}</mat-label>
+    <input type="text"
+           matInput
+           [formControl]="formControl">
+  </mat-form-field>
+  <button mat-menu-item
+          (click)="load('separate')">
+    <mat-icon>file_upload</mat-icon>
+    <span>{{ 'loadSeparate' | translate }}</span>
+  </button>
+  <button mat-menu-item
+          (click)="load('buttons')">
+    <mat-icon>file_upload</mat-icon>
+    <span>{{ 'loadButtons' | translate }}</span>
+  </button>
+  <button mat-menu-item
+          (click)="load('concat-scroll')">
+    <mat-icon>file_upload</mat-icon>
+    <span>{{ 'loadScroll' | translate }}</span>
+  </button>
+  <button mat-menu-item
+          (click)="load('concat-scroll-snap')">
+    <mat-icon>file_upload</mat-icon>
+    <span>{{ 'loadSnap' | translate }}</span>
+  </button>
+
+  @if (scrollPages && scrollPages.length) {
+    <mat-divider></mat-divider>
+    <button mat-menu-item
+            (click)="changePagingMode('separate')">
+      <mat-icon>auto_stories</mat-icon>
+      <span>{{ 'applySeparate' | translate }}</span>
+    </button>
+    <button mat-menu-item
+            (click)="changePagingMode('buttons')">
+      <mat-icon>unfold_more</mat-icon>
+      <span>{{ 'applyButtons' | translate }}</span>
+    </button>
+    <button mat-menu-item
+            (click)="changePagingMode('concat-scroll')">
+      <mat-icon>south</mat-icon>
+      <span>{{ 'applyScroll' | translate }}</span>
+    </button>
+    <button mat-menu-item
+            (click)="changePagingMode('concat-scroll-snap')">
+      <mat-icon>vertical_align_bottom</mat-icon>
+      <span>{{ 'applySnap' | translate }}</span>
+    </button>
+  }
+
+
+  <ng-container *ngIf="elementCodes && elementCodes.length">
+    <mat-divider></mat-divider>
+    <button mat-menu-item
+            (click)="reloadUnit()">
+      <mat-icon>refresh</mat-icon>
+      <span>{{ 'reloadUnit' | translate }}</span>
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="scrollPages && scrollPages.length > 1">
+    <mat-divider></mat-divider>
+    <button mat-menu-item *ngFor="let page of scrollPages; let i = index;"
+            (click)="goToPage(i)">
+      <mat-icon>web_stories</mat-icon>
+      <span>{{ 'pageIndication' | translate: {index: i + 1} }}</span>
+    </button>
+  </ng-container>
+
+</mat-menu>
