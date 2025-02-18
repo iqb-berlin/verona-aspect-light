@@ -14,7 +14,8 @@
     "ng": "ng",
     "start": "ng serve",
     "start-player-local": "ng serve player --port 4202",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "eslintConfig": {
@@ -85,11 +86,6 @@
     "@angular/router": "^19.0.0",
     "@angular/elements": "^19.1.6",
     "@iqb/responses": "^3.3.2",
-    "@ngx-translate/core": "^15.0.0",
-    "@ngx-translate/http-loader": "^8.0.0",
-    "katex": "^0.16.11",
-    "@iqb/mathlive": "^0.4.1",
-    "ngx-translate-testing": "^7.0.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2"
   },
@@ -100,7 +96,7 @@
     "@angular-eslint/eslint-plugin-template": "^19.0.0-alpha.4",
     "@angular-eslint/schematics": "^19.0.0-alpha.4",
     "@angular-eslint/template-parser": "^19.0.0-alpha.4",
-    "@angular/cli": "~19.0.2",
+    "@angular/cli": "~19.0.0",
     "@angular/compiler-cli": "^19.0.0",
     "@iqb/eslint-config": "^2.1.1",
     "@types/jasmine": "~5.1.4",
@@ -115,6 +111,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "karma-spec-reporter": "^0.0.36",
-    "typescript": "~5.4.5"
+    "ts-node": "~9.0.0",
+    "typescript": "~5.7.3"
   }
 }
