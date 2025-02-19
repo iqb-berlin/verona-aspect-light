@@ -5,10 +5,9 @@ import {
   VopPlayerConfigChangedNotification,
   VopStartCommand
 } from 'player/modules/verona/models/verona';
-import { Unit } from 'common/models/unit';
+
 import { LogService } from 'player/modules/logging/services/log.service';
 import { InputElement } from 'common/models/elements/element';
-import { Page } from 'common/models/page';
 import { UnitStateService } from 'player/src/app/services/unit-state.service';
 import { VeronaSubscriptionService } from 'player/modules/verona/services/verona-subscription.service';
 import { VeronaPostService } from 'player/modules/verona/services/verona-post.service';
@@ -27,14 +26,16 @@ import { NavigationService } from 'player/src/app/services/navigation.service';
 import { BehaviorSubject } from 'rxjs';
 import { DragNDropValueObject } from 'common/interfaces';
 import { InstantiationEror } from 'common/errors';
+import { Section } from "../../models/section";
 
 @Component({
   selector: 'aspect-unit',
   templateUrl: './unit.component.html',
   styleUrls: ['./unit.component.scss']
 })
+
 export class UnitComponent implements OnInit {
-  pages: Page[] = [];
+  pages: Section[] = [];
   playerConfig: PlayerConfig = {};
   showUnitNavNext: boolean = false;
   sectionNumbering: { enableSectionNumbering: boolean, sectionNumberingPosition: 'left' | 'above' } = {
